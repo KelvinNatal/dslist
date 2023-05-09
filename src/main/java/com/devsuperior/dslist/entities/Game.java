@@ -19,20 +19,26 @@ public class Game {
     @Column(name = "game_year")
     private Integer year;
     private String genre;
-    private String platform;
+    private String plataforms;
+    private Double score;
     private String imgUrl;
+
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
+
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     public Game(){}
 
-    public Game(Long id, String title, Integer year, String genre, String platform, String imgUrl,
+    public Game(Long id, String title, Integer year, String genre, String plataforms, Double score, String imgUrl,
             String shortDescription, String longDescription) {
         this.id = id;
         this.title = title;
         this.year = year;
         this.genre = genre;
-        this.platform = platform;
+        this.plataforms = plataforms;
+        this.score = score;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
@@ -70,14 +76,24 @@ public class Game {
         this.genre = genre;
     }
 
-    public String getPlatform() {
-        return platform;
+    public String getPlatforms() {
+        return plataforms;
     }
 
-    public void setPlatform(String platform) {
-        this.platform = platform;
+    public void setPlatforms(String plataforms) {
+        this.plataforms = plataforms;
     }
 
+    
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
+    }
+
+    
     public String getImgUrl() {
         return imgUrl;
     }
@@ -110,7 +126,7 @@ public class Game {
         result = prime * result + ((title == null) ? 0 : title.hashCode());
         result = prime * result + ((year == null) ? 0 : year.hashCode());
         result = prime * result + ((genre == null) ? 0 : genre.hashCode());
-        result = prime * result + ((platform == null) ? 0 : platform.hashCode());
+        result = prime * result + ((plataforms == null) ? 0 : plataforms.hashCode());
         result = prime * result + ((imgUrl == null) ? 0 : imgUrl.hashCode());
         result = prime * result + ((shortDescription == null) ? 0 : shortDescription.hashCode());
         result = prime * result + ((longDescription == null) ? 0 : longDescription.hashCode());
@@ -146,10 +162,10 @@ public class Game {
                 return false;
         } else if (!genre.equals(other.genre))
             return false;
-        if (platform == null) {
-            if (other.platform != null)
+        if (plataforms == null) {
+            if (other.plataforms != null)
                 return false;
-        } else if (!platform.equals(other.platform))
+        } else if (!plataforms.equals(other.plataforms))
             return false;
         if (imgUrl == null) {
             if (other.imgUrl != null)
@@ -168,6 +184,7 @@ public class Game {
             return false;
         return true;
     }
+
 
     
 
